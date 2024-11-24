@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateUserActivity"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <EditText
+        android:id="@+id/updateTextName"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:ems="10"
+        android:hint="enter name"
+        android:inputType="text"
+        android:text="Name"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/updateTextAge"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:hint="Enter age"
+        android:inputType="text"
+        android:text="Age" />
+
+    <EditText
+        android:id="@+id/updateTextEmail"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:hint="Enter email"
+        android:inputType="text"
+        android:text="Email" />
+
+    <Button
+        android:id="@+id/buttonUpdateUser"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_margin="20dp"
+        android:text="Add User"
+        android:textSize="18sp" />
+</LinearLayout>
