@@ -7,34 +7,52 @@
     android:layout_height="match_parent"
     tools:context=".AddUsersActivity"
     android:orientation="vertical"
-    android:gravity="center_horizontal">
+    android:gravity="center">
+
+    <!-- Título de la pantalla -->
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add User"
+        android:textSize="40sp"
+        android:layout_marginBottom="80dp"
+        android:gravity="center"
+        android:padding="20dp"
+        android:textColor="#000000" />
 
     <EditText
         android:id="@+id/editTextName"
-        android:layout_width="300dp"
-        android:layout_height="55dp"
+        android:layout_width="400dp"
+        android:layout_height="65dp"
         android:ems="10"
-        android:hint="Enter name"
+        android:hint=" Enter name"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/rounded_edittext"
         android:inputType="text"
         android:textSize="20sp" />
 
     <EditText
         android:id="@+id/editTextAge"
-        android:layout_width="300dp"
-        android:layout_height="55dp"
-        android:layout_margin="10dp"
+        android:layout_width="400dp"
+        android:layout_height="65dp"
         android:ems="10"
-        android:hint="Enter age"
-        android:inputType="text"/>
+        android:hint=" Enter age"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/rounded_edittext"
+        android:inputType="text"
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/editTextEmail"
-        android:layout_width="300dp"
-        android:layout_height="55dp"
-        android:layout_margin="10dp"
+        android:layout_width="400dp"
+        android:layout_height="65dp"
         android:ems="10"
-        android:hint="Enter email"
-        android:inputType="text"/>
+        android:hint=" Enter email"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/rounded_edittext"
+        android:inputType="text"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/buttonAddUsers"
@@ -42,5 +60,7 @@
         android:layout_height="60dp"
         android:layout_margin="20dp"
         android:text="Add User"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:backgroundTint="#d09306" />
+
 </LinearLayout>

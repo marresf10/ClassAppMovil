@@ -26,7 +26,7 @@ class UpdateUserActivity : AppCompatActivity() {
         getAndSetData()
 
         updateUserBinding.buttonUpdateUser.setOnClickListener{
-            updateData()
+                updateData()
         }
     }
 
@@ -40,23 +40,48 @@ class UpdateUserActivity : AppCompatActivity() {
         updateUserBinding.updateTextEmail.setText(email)
 
     }
-    fun updateData (){
-        val updatedName = updateUserBinding.updateTextName.text.toString()
-        val updatedAge = updateUserBinding.updateTextAge.text.toString().toInt()
-        val updatedEmail = updateUserBinding.updateTextEmail.text.toString()
+
+    fun updateData() {
+        val updatedName = updateUserBinding.updateTextName.text.toString().trim()
+        val updatedAgeText = updateUserBinding.updateTextAge.text.toString().trim()
+        val updatedEmail = updateUserBinding.updateTextEmail.text.toString().trim()
+
+        if (updatedName.isEmpty()) {
+            Toast.makeText(this, "El nombre no puede estar vacío", Toast.LENGTH_SHORT).show()
+            return
+        }
+        if (updatedAgeText.isEmpty()) {
+            Toast.makeText(this, "La edad no puede estar vacía", Toast.LENGTH_SHORT).show()
+            return
+        }
+        if (updatedEmail.isEmpty()) {
+            Toast.makeText(this, "El correo electrónico no puede estar vacío", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val updatedAge = try {
+            updatedAgeText.toInt()
+        } catch (e: NumberFormatException) {
+            Toast.makeText(this, "Por favor ingresa un número válido para la edad", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         val userId = intent.getStringExtra("id").toString()
 
-        val userMap = mutableMapOf<String,Any>()
-        userMap ["userId"] = userId
-        userMap ["userName"] = updatedName
-        userMap ["userAge"] = updatedAge
-        userMap ["userEmail"] = updatedEmail
+        val userMap = mutableMapOf<String, Any>()
+        userMap["userId"] = userId
+        userMap["userName"] = updatedName
+        userMap["userAge"] = updatedAge
+        userMap["userEmail"] = updatedEmail
 
         myReference.child(userId).updateChildren(userMap).addOnCompleteListener { task ->
-            if (task.isSuccessful){
-                Toast.makeText(applicationContext, "the user has been updated", Toast.LENGTH_SHORT).show()
+            if (task.isSuccessful) {
+                Toast.makeText(applicationContext, "El usuario ha sido actualizado", Toast.LENGTH_SHORT).show()
                 finish()
+            } else {
+                Toast.makeText(applicationContext, "Error al actualizar el usuario", Toast.LENGTH_SHORT).show()
             }
         }
     }
+
 }
