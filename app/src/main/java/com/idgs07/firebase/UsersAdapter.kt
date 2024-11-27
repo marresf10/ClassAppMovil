@@ -40,5 +40,11 @@ class UsersAdapter (var context : Context,
         return userList.size
     }
 
+    fun getUserId (position: Int): String {
+        return userList[position].userId
+    }
+
+    //Finished
+
 }
 
